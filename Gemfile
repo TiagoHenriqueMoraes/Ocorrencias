@@ -16,6 +16,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'pundit'
 gem 'simple_form'
+gem "slim-rails"
+
+gem "bootstrap-sass"
+gem 'sprockets-rails'
+gem 'jquery-rails'
 
 
 gem 'bootsnap', '>= 1.1.0', require: false
