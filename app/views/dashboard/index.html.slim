@@ -1,0 +1,10 @@
+h1 Dashboard
+h4
+  | Topzera
+
+- if current_user.admin?
+  h1 sou admin
+- if !current_user.admin?  
+  h4 não sou admin chorei largado
+
+= link_to "Quita", destroy_user_session_path(), class: "btn btn-danger", method: :delete
