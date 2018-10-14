@@ -10,10 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_230132) do
+ActiveRecord::Schema.define(version: 2018_10_14_163630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.bigint "turn_id"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_employees_on_team_id"
+    t.index ["turn_id"], name: "index_employees_on_turn_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "description"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "guidelines", force: :cascade do |t|
+    t.string "item"
+    t.bigint "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_guidelines_on_group_id"
+  end
+
+  create_table "occurences", force: :cascade do |t|
+    t.integer "status"
+    t.string "treatment"
+    t.string "description"
+    t.bigint "employee_id"
+    t.bigint "turn_id"
+    t.bigint "team_id"
+    t.bigint "supervisor_id"
+    t.bigint "guideline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_occurences_on_employee_id"
+    t.index ["guideline_id"], name: "index_occurences_on_guideline_id"
+    t.index ["supervisor_id"], name: "index_occurences_on_supervisor_id"
+    t.index ["team_id"], name: "index_occurences_on_team_id"
+    t.index ["turn_id"], name: "index_occurences_on_turn_id"
+  end
+
+  create_table "supervisors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.bigint "supervisor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supervisor_id"], name: "index_teams_on_supervisor_id"
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +93,13 @@ ActiveRecord::Schema.define(version: 2018_10_12_230132) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "employees", "teams"
+  add_foreign_key "employees", "turns"
+  add_foreign_key "guidelines", "groups"
+  add_foreign_key "occurences", "employees"
+  add_foreign_key "occurences", "guidelines"
+  add_foreign_key "occurences", "supervisors"
+  add_foreign_key "occurences", "teams"
+  add_foreign_key "occurences", "turns"
+  add_foreign_key "teams", "supervisors"
 end

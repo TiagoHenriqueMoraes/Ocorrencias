@@ -21,7 +21,7 @@ gem "slim-rails"
 gem "bootstrap-sass"
 gem 'sprockets-rails'
 gem 'jquery-rails'
-
+gem 'kaminari'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
