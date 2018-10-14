@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  treatment: MyString
+  description: MyString
+  employee: one
+  turn: one
+  team: one
+  supervisor: one
+  guideline: one
+
+two:
+  status: 1
+  treatment: MyString
+  description: MyString
+  employee: two
+  turn: two
+  team: two
+  supervisor: two
+  guideline: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_163630) do
+ActiveRecord::Schema.define(version: 2018_10_14_181223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_163630) do
     t.index ["group_id"], name: "index_guidelines_on_group_id"
   end
 
-  create_table "occurences", force: :cascade do |t|
+  create_table "occurrences", force: :cascade do |t|
     t.integer "status"
     t.string "treatment"
     t.string "description"
@@ -51,11 +51,11 @@ ActiveRecord::Schema.define(version: 2018_10_14_163630) do
     t.bigint "guideline_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_occurences_on_employee_id"
-    t.index ["guideline_id"], name: "index_occurences_on_guideline_id"
-    t.index ["supervisor_id"], name: "index_occurences_on_supervisor_id"
-    t.index ["team_id"], name: "index_occurences_on_team_id"
-    t.index ["turn_id"], name: "index_occurences_on_turn_id"
+    t.index ["employee_id"], name: "index_occurrences_on_employee_id"
+    t.index ["guideline_id"], name: "index_occurrences_on_guideline_id"
+    t.index ["supervisor_id"], name: "index_occurrences_on_supervisor_id"
+    t.index ["team_id"], name: "index_occurrences_on_team_id"
+    t.index ["turn_id"], name: "index_occurrences_on_turn_id"
   end
 
   create_table "supervisors", force: :cascade do |t|
@@ -96,10 +96,10 @@ ActiveRecord::Schema.define(version: 2018_10_14_163630) do
   add_foreign_key "employees", "teams"
   add_foreign_key "employees", "turns"
   add_foreign_key "guidelines", "groups"
-  add_foreign_key "occurences", "employees"
-  add_foreign_key "occurences", "guidelines"
-  add_foreign_key "occurences", "supervisors"
-  add_foreign_key "occurences", "teams"
-  add_foreign_key "occurences", "turns"
+  add_foreign_key "occurrences", "employees"
+  add_foreign_key "occurrences", "guidelines"
+  add_foreign_key "occurrences", "supervisors"
+  add_foreign_key "occurrences", "teams"
+  add_foreign_key "occurrences", "turns"
   add_foreign_key "teams", "supervisors"
 end

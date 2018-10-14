@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  
+  resources :guidelines, expect: :show
+  resources :teams, expect: :show
+  resources :occurences
+  resources :supervisors
+  resources :turns, expect: :show
+  resources :groups, expect: :show
+  resources :employees
+  
   devise_for :users
   
   

@@ -1,6 +1,6 @@
-class CreateOccurences < ActiveRecord::Migration[5.2]
+class CreateOccurrences < ActiveRecord::Migration[5.2]
   def change
-    create_table :occurences do |t|
+    create_table :occurrences do |t|
       t.integer :status
       t.string :treatment
       t.string :description
