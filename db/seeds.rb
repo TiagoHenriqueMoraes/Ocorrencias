@@ -46,12 +46,8 @@ Guideline.create(
 
 15.times do
   Employee.create(
-    name: ["Batata1", "Batata2", "Potato", "Batatasso"],
+    name: ["Batata1", "Batata2", "Potato", "Batatasso"].sample,
     turn: Turn.all.sample,
     team: @charlie
   )
 end
-
-Occurrence.create(
-  
-)
