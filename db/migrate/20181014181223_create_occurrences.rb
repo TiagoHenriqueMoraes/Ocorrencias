@@ -7,7 +7,7 @@ class CreateOccurrences < ActiveRecord::Migration[5.2]
       t.references :employee, foreign_key: true
       t.references :turn, foreign_key: true
       t.references :team, foreign_key: true
-      t.references :supervisor, foreign_key: true
+      t.references :user, foreign_key: true
       t.references :guideline, foreign_key: true
 
       t.timestamps

@@ -1,27 +1,22 @@
 @admin = User.create(
-  name: "Jenny",
-  kind: 1,
-  email: "admin@desktop",
+  name: "JennyCordenadora",
+  kind: 0,
+  email: "cordenador@desktop",
   password: "123456",
   password_confirmation: "123456"
 )
 
 @naoadmin = User.create(
-  name: "Batatas",
-  kind: 0,
-  email: "naoadmin@desktop",
+  name: "Jenny",
+  kind: 1,
+  email: "supervisor@desktop",
   password: "123456",
   password_confirmation: "123456"
 )
 
-
-@supervisor = Supervisor.create(
-  name: "Jennifer Almeida"
-)
-
 @charlie = Team.create(
   name: "Charlie",
-  supervisor: @supervisor
+  user: @naoadmin
 )
 
 ["First", "Second", "Third", "Fourth"].each do |turn|
