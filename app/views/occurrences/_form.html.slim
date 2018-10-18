@@ -1,0 +1,11 @@
+= simple_form_for @occurrence do |f|
+  = f.input :treatment
+  = f.input :status, as: :radio_buttons, collection: Occurrence.statuses
+  = f.input :description
+  = f.association :supervisor
+  = f.association :employee
+  = f.association :turn
+  = f.association :team
+  = f.association :guideline
+
+  = f.submit

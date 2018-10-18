@@ -1,0 +1,10 @@
+.container
+  table.table
+    thead
+      tr
+        th Quantidade
+    tbody
+      tr
+        td = Occurrence.all.count
+
+= link_to "Nova ocorrencia", new_occurrence_path(), class: "btn btn-success"
