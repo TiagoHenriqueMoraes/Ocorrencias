@@ -1,6 +1,7 @@
 = simple_form_for @occurrence do |f|
   = f.input :treatment
-  = f.input :status, as: :radio_buttons, collection: Occurrence.statuses
+  = f.input :status, as: :radio_buttons, collection: Occurrence.statuses.map { |k, _| [I18n.t("activerecord.attributes.survey.kinds.#{k}"), k] },
+            checked: @occurrence.new_record? ? "pending" : @occurrence.status
   = f.input :description
   = f.association :supervisor
   = f.association :employee

@@ -17,7 +17,7 @@ gem 'devise'
 gem 'pundit'
 gem 'simple_form'
 gem "slim-rails"
-
+gem "lograge"
 gem "bootstrap-sass"
 gem 'sprockets-rails'
 gem 'jquery-rails'
