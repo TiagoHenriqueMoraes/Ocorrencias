@@ -22,6 +22,8 @@ gem "bootstrap-sass"
 gem 'sprockets-rails'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'better_errors'
+gem 'rails-i18n', '~> 5.1'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -34,6 +36,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-byebug'
 end
 
 group :test do
