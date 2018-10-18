@@ -4,5 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum kind: [:simple, :admin]
+  enum kind: [:admin, :supevisor]
+
+  scope :supervisor, -> { where(kind: 1)}
+
+  has_one :team
+
+  has_many :occurrencies
 end

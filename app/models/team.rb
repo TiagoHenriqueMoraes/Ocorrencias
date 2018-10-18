@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  belongs_to :supervisor
+  belongs_to :user
 
   has_many :occurrencies
 end
