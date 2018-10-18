@@ -2,9 +2,16 @@
   table.table
     thead
       tr
-        th Quantidade
+        th Hora
+        th Supervisor
+        th Descrição
+        th Atendente
+        th Status
+        th Turno
+        th Equipe
+        th Tratativa
     tbody
-      tr
-        td = Occurrence.all.count
+      - @occurrences.each do |f|
+        = render "occurrences", f: f
 
 = link_to "Nova ocorrencia", new_occurrence_path(), class: "btn btn-success"
