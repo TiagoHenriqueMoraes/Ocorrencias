@@ -37,7 +37,6 @@ class OccurrencesController < ApplicationController
   end
 
   def occurrences_params
-    params.require(:occurrence).permit(:status, :description, :turn_id, :user_id, :treatment, :team_id,
-                                       :guideline_id, :employee_id)
+    params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes)
   end
 end
