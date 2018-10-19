@@ -10,6 +10,8 @@
         th Turno
         th Equipe
         th Tratativa
+        - if current_user.admin?
+          th
     tbody
       - @occurrences.each do |f|
         = render "occurrences", f: f

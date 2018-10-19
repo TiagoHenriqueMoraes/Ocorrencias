@@ -1,9 +1,11 @@
   tr
     td = f.created_at.to_date
-    td = f.supervisor.name
+    td = f.user.name
     td = f.description
     td = f.employee.name
     td = f.status
     td = f.turn.name
     td = f.team.name
     td = f.treatment
+    - if current_user.admin?
+      td = link_to "Editar", edit_occurrence_path(f)
