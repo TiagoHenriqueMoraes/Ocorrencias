@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_181223) do
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
+    t.boolean "active", default: true
     t.bigint "turn_id"
     t.bigint "team_id"
     t.datetime "created_at", null: false
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_181223) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "kind"
+    t.boolean "active", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
