@@ -12,7 +12,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Occurrence.new(employee_params)
     if @employee.save
-      redirect_to employee_path, notice: "Save Successful."
+      redirect_to employee_path, notice: "Atendente cadastrado com sucesso"
     else  
       render :new
     end
@@ -25,6 +25,8 @@ class EmployeesController < ApplicationController
   end
 
   def destroy
+    @employee.destroy
+    redirect_to employee_path(), notice: "Atendente excluido com sucesso"
   end
 
   private

@@ -11,6 +11,7 @@ class OccurrencesController < ApplicationController
 
   def create
     @occurrence = Occurrence.new(occurrences_params)
+    user = current_user if current_user.supervisor?
     if @occurrence.save
       redirect_to occurrences_path, notice: "Save Successful."
     else  
@@ -37,6 +38,6 @@ class OccurrencesController < ApplicationController
   end
 
   def occurrences_params
-    params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes)
+    params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes).merge(user: current_user)
   end
 end
