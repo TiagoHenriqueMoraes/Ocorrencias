@@ -1,0 +1,27 @@
+
+.container
+  .col-md-5
+    .col-md-offset-3
+      .panel.panel-default style="padding: 5px; background-color: #b21023;"
+        .center
+          = image_tag("desktop-logo.png")
+
+          br
+          br
+
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            . class="form-inputs" style="text-align: center; color: #e8b500"
+              = f.label "Email"
+              = f.input :email, required: false, autofocus: true,
+                        input_html: { autocomplete: "email" }, label: false
+
+              = f.label "Senha"
+              = f.input :password, required: false,
+                        input_html: { autocomplete: "current-password" }, label: false
+              
+              br
+
+            . class="form-actions" style="text-align: center"
+              = f.button :submit, "Log in", class: "btn btn-success"
+          . style="text-align: center"
+            = render "devise/shared/links"

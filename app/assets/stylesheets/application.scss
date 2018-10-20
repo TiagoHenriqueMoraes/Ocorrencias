@@ -14,5 +14,11 @@
  *= require_self
  *= require font-awesome
  */
- @import "bootstrap";
- @import "font-awesome";
+@import "bootstrap";
+@import "font-awesome";
+
+
+.center{
+  margin: 0 auto;
+  width: 80%;
+}
