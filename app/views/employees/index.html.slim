@@ -1,9 +1,15 @@
-h1 Funcionarios
+h1 Atendente
 
 table
   thead
     tr
+      th Nome
+      th Turno
+      th Equipe
       th
   tbody
-    tr
-      td
+    - @employees.each do |f|
+      = render "employees", employee: f
+
+
+= link_to "Novo atendente", new_employee_path(), class: "btn btn-success"

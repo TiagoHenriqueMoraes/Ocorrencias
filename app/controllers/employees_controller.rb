@@ -2,7 +2,7 @@ class EmployeesController < ApplicationController
   before_action :set_employee, only: [:edit, :update, :destroy]
   
   def index
-    @employees = Employee.all
+    @employees = Employee.active.order(:name).all
   end
 
   def new
@@ -10,9 +10,9 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Occurrence.new(employee_params)
+    @employee = Employee.new(employee_params)
     if @employee.save
-      redirect_to employee_path, notice: "Atendente cadastrado com sucesso"
+      redirect_to employees_path(), notice: "Atendente cadastrado com sucesso"
     else  
       render :new
     end
@@ -26,7 +26,7 @@ class EmployeesController < ApplicationController
 
   def destroy
     @employee.destroy
-    redirect_to employee_path(), notice: "Atendente excluido com sucesso"
+    redirect_to employees_path(), notice: "Atendente excluido com sucesso"
   end
 
   private
@@ -36,6 +36,6 @@ class EmployeesController < ApplicationController
   end
 
   def employee_params
-    params.require(:employee).permit(*policy(employee).permited_attributes)
+    params.require(:employee).permit(*policy(Employee).permitted_attributes)
   end
 end
