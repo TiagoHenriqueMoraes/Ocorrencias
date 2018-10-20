@@ -2,7 +2,7 @@ class OccurrencesController < ApplicationController
   before_action :set_occurrence, only: [:edit, :update, :show, :destroy]
   
   def index
-    @occurrences = Occurrence.all
+    @occurrences = Occurrence.all.order(:created_at).reverse
   end
 
   def new
@@ -43,6 +43,6 @@ class OccurrencesController < ApplicationController
   end
 
   def occurrence_params
-    params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes).merge(user: current_user)
+    params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes)
   end
 end
