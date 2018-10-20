@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
   scope :supervisors, -> { where(kind: 1)}
 
-  has_one :team
-
+  belongs_to :turn
+  belongs_to :team
+  
   has_many :occurrencies
 end
