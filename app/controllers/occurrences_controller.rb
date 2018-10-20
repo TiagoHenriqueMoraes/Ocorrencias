@@ -1,5 +1,5 @@
 class OccurrencesController < ApplicationController
-  before_action :set_occurrence, only: [:edit, :show, :destroy]
+  before_action :set_occurrence, only: [:edit, :update, :show, :destroy]
   
   def index
     @occurrences = Occurrence.all
@@ -10,10 +10,10 @@ class OccurrencesController < ApplicationController
   end
 
   def create
-    @occurrence = Occurrence.new(occurrences_params)
+    @occurrence = Occurrence.new(occurrence_params)
     user = current_user if current_user.supervisor?
     if @occurrence.save
-      redirect_to occurrences_path, notice: "Save Successful."
+      redirect_to occurrences_path, notice: "Ocorrencia salva com sucesso."
     else  
       render :new
     end
@@ -23,6 +23,11 @@ class OccurrencesController < ApplicationController
   end
 
   def update
+    if @occurrence.update(occurrence_params)
+      redirect_to occurrences_path, notice: "Occorencia atualizada!"
+    else
+      render :new
+    end
   end
 
   def show
@@ -34,10 +39,10 @@ class OccurrencesController < ApplicationController
   private
 
   def set_occurrence
-    @occurrence = Occurrences.find(params[:id])
+    @occurrence = Occurrence.find(params[:id])
   end
 
-  def occurrences_params
+  def occurrence_params
     params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes).merge(user: current_user)
   end
 end
