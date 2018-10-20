@@ -1,3 +1,5 @@
+= flash[:notice]
+
 h1 Dashboard
 h4
   | Topzera
@@ -8,10 +10,18 @@ h4
   h4 não sou admin chorei largado
 
 = link_to "Quita", destroy_user_session_path(), class: "btn btn-danger", method: :delete
+br
 
 = link_to "Nova ocorrencia", new_occurrence_path(), class: "btn btn-success"
 = link_to "Ocorrencias", occurrences_path(), class: "btn btn-default"
+br
 = link_to "Novo atendente", new_employee_path(), class: "btn btn-success"
 = link_to "Atendentes", employees_path(), class: "btn btn-default"
+br
 = link_to "Novo Supervisor", new_user_path(), class: "btn btn-success" if current_user.admin?
-= link_to "Novo Grupo"
+br
+= link_to "Novo Grupo", new_group_path(), class: "btn btn-success" if current_user.admin?
+= link_to "Grupos", groups_path(), class: "btn btn-default"
+br
+= link_to "Nova diretriz", new_guideline_path(), class: "btn btn-success" if current_user.admin?
+= link_to "Diretrizes", guidelines_path(), class: "btn btn-default"

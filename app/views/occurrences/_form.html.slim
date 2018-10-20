@@ -8,6 +8,6 @@
   = f.association :employee
   = f.association :turn, as: :radio_buttons
   = f.association :team, as: :radio_buttons
-  = f.association :guideline
+  = f.association :guideline, label_method: :item
 
   = f.submit
