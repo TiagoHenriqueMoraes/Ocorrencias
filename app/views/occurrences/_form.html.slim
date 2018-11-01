@@ -10,4 +10,5 @@
   = f.association :team, as: :radio_buttons
   = f.association :guideline, label_method: :item
 
-  = f.submit
+  = submit_tag "Enviar", class: "btn btn-success"
+  = link_to "Cancelar", :back, class: "btn btn-default"

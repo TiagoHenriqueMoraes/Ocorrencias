@@ -1,4 +1,5 @@
 = simple_form_for @guideline do |f|
   = f.input :item
   = f.association :group, label_method: :description
-  = f.submit
+  = submit_tag "Enviar", class: "btn btn-success"
+  = link_to "Cancelar", :back, class: "btn btn-default"

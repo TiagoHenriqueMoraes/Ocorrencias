@@ -1,4 +1,5 @@
 = simple_form_for @group do |f|
   = f.input :description
   = f.input :weight
-  = f.submit
+  = submit_tag "Enviar", class: "btn btn-success"
+  = link_to "Cancelar", :back, class: "btn btn-default"
