@@ -12,3 +12,5 @@
     td = f.status
     - if current_user.admin?
       td = link_to "Editar", edit_occurrence_path(f)
+    - if current_user.admin?
+      td 
