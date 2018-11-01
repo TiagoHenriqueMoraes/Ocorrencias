@@ -61,10 +61,8 @@ ActiveRecord::Schema.define(version: 2018_10_20_113935) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "turns", force: :cascade do |t|
@@ -101,7 +99,6 @@ ActiveRecord::Schema.define(version: 2018_10_20_113935) do
   add_foreign_key "occurrences", "teams"
   add_foreign_key "occurrences", "turns"
   add_foreign_key "occurrences", "users"
-  add_foreign_key "teams", "users"
   add_foreign_key "users", "teams"
   add_foreign_key "users", "turns"
 end

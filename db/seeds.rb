@@ -1,22 +1,5 @@
-@admin = User.create(
-  name: "JennyCordenadora",
-  kind: 0,
-  email: "cordenador@desktop",
-  password: "123456",
-  password_confirmation: "123456"
-)
-
-@naoadmin = User.create(
-  name: "Jenny",
-  kind: 1,
-  email: "supervisor@desktop",
-  password: "123456",
-  password_confirmation: "123456"
-)
-
 @charlie = Team.create(
-  name: "Charlie",
-  user: @naoadmin
+  name: "Charlie"
 )
 
 ["First", "Second", "Third", "Fourth"].each do |turn|
@@ -26,6 +9,25 @@
   )
 end
 
+@admin = User.create(
+  name: "JennyCordenadora",
+  kind: 0,
+  email: "cordenador@desktop",
+  password: "123456",
+  password_confirmation: "123456",
+  team: @charlie,
+  turn: Turn.all.sample
+)
+
+@naoadmin = User.create(
+  name: "Jenny",
+  kind: 1,
+  email: "supervisor@desktop",
+  password: "123456",
+  password_confirmation: "123456",
+  team: @charlie,
+  turn: Turn.all.sample
+)
 
 5.times do
   Group.create(
