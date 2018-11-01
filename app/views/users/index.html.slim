@@ -1,2 +1,15 @@
-h1 yeee
+.container
+  table.table
+    thead
+      tr
+        th Nome
+        th Turno
+        th Equipe
+        - if current_user.admin?
+          th
+    tbody
+      - @users.each do |f|
+        = render "users", f: f
 
+= link_to "Nova Supervisor", new_user_path(), class: "btn btn-success"
+= link_to "Voltar", root_path(), class: "btn btn-default"

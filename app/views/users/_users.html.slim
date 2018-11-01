@@ -1,0 +1,6 @@
+  tr
+    td = f.name
+    td = f.turn.name
+    td = f.team.name
+    - if current_user.admin?
+      td = link_to "Editar", edit_user_path(f)

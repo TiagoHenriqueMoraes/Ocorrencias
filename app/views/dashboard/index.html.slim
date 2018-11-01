@@ -19,6 +19,7 @@ br
 = link_to "Atendentes", employees_path(), class: "btn btn-default"
 br
 = link_to "Novo Supervisor", new_user_path(), class: "btn btn-success" if current_user.admin?
+= link_to "Supervisores", users_path(), class: "btn btn-default" if current_user.admin?
 br
 = link_to "Novo Grupo", new_group_path(), class: "btn btn-success"
 = link_to "Grupos", groups_path(), class: "btn btn-default"

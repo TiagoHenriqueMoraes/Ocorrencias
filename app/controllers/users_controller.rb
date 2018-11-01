@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   
+  def index
+    @users = User.all
+  end
+  
   def new
     @user = User.new
   end
@@ -10,6 +14,18 @@ class UsersController < ApplicationController
     binding.pry
     if @user.save
       redirect_to root_path(), notice: "Supervisor criado com sucesso!"
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    if @user.update(users_params)
+      redirect_to users_path, notice: "Usuario atualizada!"
     else
       render :new
     end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :turns, expect: :show
   resources :groups, expect: :show
   resources :employees
-  resources :users, only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create, :edit, :update]
   
   devise_for :users
   
