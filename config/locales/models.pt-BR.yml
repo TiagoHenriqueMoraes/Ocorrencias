@@ -1,0 +1,51 @@
+pt-BR:
+  attributes:
+    created_at: "Criado em"
+    updated_at: "Atualizado em"
+
+
+  activerecord:
+    not_found: "Registro não encontrado"
+
+    models:
+      user: "Usuários"
+      occurrence: "Ocorrencias"
+      employee: "Atendente"
+      team: "Equipe"
+      turn: "Turno"
+      guidelines: "Diretriz"
+
+    attributes:
+      user:
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmação de Senha"
+        name: "Nome"
+        active: "Ativo?"
+        kind: "Tipo"
+        kinds:
+          admin: "Cordendor"
+          supervisor: "Supervisor"
+      
+      occurrence:
+        employee: "Atendente"
+        user: "Supervisor"
+        turn: "Turno"
+        team: "Equipe"
+        guideline: "Diretriz"
+        treatment: "Tratativa"
+        description: "Descrição"
+        status: "Estado"
+        statuses:
+          pending: "Pendente"
+          finished: "Finalizado"
+
+      teams:
+        name: "Nome"
+      
+      turns:
+        name: "Nome"
+        description: "Descrição"
+      
+      guideline:
+        item: item

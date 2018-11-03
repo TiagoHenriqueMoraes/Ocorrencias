@@ -5,5 +5,6 @@
   = f.input :password_confirmation, required: true if @user.new_record?
   = f.association :turn
   = f.association :team
+  = f.input :active, as: :radio_buttons unless @user.new_record?
   = submit_tag "Enviar", class: "btn btn-success"
   = link_to "Cancelar", :back, class: "btn btn-default"

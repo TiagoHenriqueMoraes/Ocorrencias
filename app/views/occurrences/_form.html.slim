@@ -1,5 +1,5 @@
 = simple_form_for @occurrence do |f|
-  = f.input :status, as: :radio_buttons, collection: Occurrence.statuses.map { |k, _| [I18n.t("activerecord.attributes.survey.kinds.#{k}"), k] },
+  = f.input :status, as: :radio_buttons, collection: Occurrence.statuses.map { |k, _| [I18n.t("activerecord.attributes.occurrence.statuses.#{k}"), k] },
             checked: @occurrence.new_record? ? "pending" : @occurrence.status
   = f.label :description
   br
