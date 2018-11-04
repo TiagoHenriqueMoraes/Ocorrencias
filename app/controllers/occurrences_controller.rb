@@ -10,7 +10,6 @@ class OccurrencesController < ApplicationController
   end
 
   def create
-    binding.pry
     @occurrence = Occurrence.new(occurrence_params)
     user = current_user if current_user.supervisor?
     @occurrence.group = @occurrence.guideline.group

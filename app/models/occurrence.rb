@@ -9,13 +9,14 @@ class Occurrence < ApplicationRecord
 
   enum status: [:pending, :finished]
 
-  #before_create :occurrences_quantity
+  before_create :occurrences_quantity
 
   def date_formatted
     created_at.strftime('%d/%m %H:%M')
   end
 
-  #def occurrences_quantity
-  #  occurrence = Occurrence.find_by(employee_id: employee_id, group_id: group_id)
-  #end
+  def occurrences_quantity
+    repetition = Occurrence.where(employee_id: employee_id, group_id: group_id)
+    self.increment(:quantity, 1) if repetition.present?
+  end
 end
