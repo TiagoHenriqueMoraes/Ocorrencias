@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_20_113935) do
+ActiveRecord::Schema.define(version: 2018_11_04_191155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,10 @@ ActiveRecord::Schema.define(version: 2018_10_20_113935) do
     t.bigint "guideline_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity"
+    t.bigint "group_id"
     t.index ["employee_id"], name: "index_occurrences_on_employee_id"
+    t.index ["group_id"], name: "index_occurrences_on_group_id"
     t.index ["guideline_id"], name: "index_occurrences_on_guideline_id"
     t.index ["team_id"], name: "index_occurrences_on_team_id"
     t.index ["turn_id"], name: "index_occurrences_on_turn_id"
@@ -95,6 +98,7 @@ ActiveRecord::Schema.define(version: 2018_10_20_113935) do
   add_foreign_key "employees", "turns"
   add_foreign_key "guidelines", "groups"
   add_foreign_key "occurrences", "employees"
+  add_foreign_key "occurrences", "groups"
   add_foreign_key "occurrences", "guidelines"
   add_foreign_key "occurrences", "teams"
   add_foreign_key "occurrences", "turns"

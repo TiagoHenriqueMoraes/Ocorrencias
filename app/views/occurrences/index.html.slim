@@ -16,8 +16,7 @@
         th Status
         - if current_user.admin?
           th
-        - if current_user.admin?
-          th
+        th
     tbody
       - @occurrences.each do |f|
         = render "occurrences", f: f

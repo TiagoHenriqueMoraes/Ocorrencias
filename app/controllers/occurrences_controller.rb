@@ -10,8 +10,10 @@ class OccurrencesController < ApplicationController
   end
 
   def create
+    binding.pry
     @occurrence = Occurrence.new(occurrence_params)
     user = current_user if current_user.supervisor?
+    @occurrence.group = @occurrence.guideline.group
     if @occurrence.save
       redirect_to occurrences_path, notice: "Ocorrencia salva com sucesso."
     else  
@@ -40,6 +42,6 @@ class OccurrencesController < ApplicationController
   end
 
   def occurrence_params
-    params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes)
+    params.require(:occurrence).permit(*policy(Occurrence).permitted_attributes).merge(user: current_user)
   end
 end

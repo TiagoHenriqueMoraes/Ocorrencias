@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.kind = 1
-    binding.pry
     if @user.save
       redirect_to root_path(), notice: "Supervisor criado com sucesso!"
     else
