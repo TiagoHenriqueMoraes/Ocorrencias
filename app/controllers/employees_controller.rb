@@ -22,6 +22,11 @@ class EmployeesController < ApplicationController
   end
 
   def update
+    if @employee.update!(employee_params)
+      redirect_to employees_path(), notice: "Atendente atualizado com sucesso"
+    else
+      render :edit
+    end
   end
 
   def destroy

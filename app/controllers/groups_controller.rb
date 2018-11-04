@@ -10,6 +10,12 @@ class GroupsController < ApplicationController
   end
 
   def create
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to groups_path, notice: "Grupo salvo com sucesso."
+    else  
+      render :new
+    end
   end
 
   def edit
@@ -28,6 +34,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permite(*policy(Group).permitted_attributes)
+    params.require(:group).permit(*policy(Group).permitted_attributes)
   end
 end

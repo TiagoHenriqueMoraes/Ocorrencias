@@ -1,8 +1,9 @@
 .container
+  h1 Ocorrencias
   table.table
     thead
       tr
-        th id
+        th Id
         th Hora
         th Turno
         th Equipe
@@ -21,5 +22,5 @@
       - @occurrences.each do |f|
         = render "occurrences", f: f
 
-= link_to "Nova ocorrencia", new_occurrence_path(), class: "btn btn-success"
-= link_to "Voltar", root_path(), class: "btn btn-default"
+  = link_to "Nova ocorrencia", new_occurrence_path(), class: "btn btn-success"
+  = link_to "Voltar", root_path(), class: "btn btn-default"

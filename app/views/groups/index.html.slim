@@ -1,3 +1,13 @@
-h1 Grupos
+.container
+  h1 Grupos
+  table.table
+    thead
+      tr
+        th Tratativa
+        th Descrição
+    tbody
+      - @groups.each do |f|
+        = render "groups", f: f
 
-= link_to "Novo Grupo", new_group_path(), class: "btn btn-success" 
+  = link_to "Novo Grupo", new_group_path(), class: "btn btn-success"
+  = link_to "Voltar", root_path(), class: "btn btn-default"

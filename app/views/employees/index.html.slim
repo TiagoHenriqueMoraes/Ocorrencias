@@ -1,16 +1,16 @@
-h1 Atendente
+.container
+  h1 Atendente
+  table.table
+    thead
+      tr
+        th Nome
+        th Turno
+        th Equipe
+        th
+    tbody
+      - @employees.each do |f|
+        = render "employees", employee: f
 
-table
-  thead
-    tr
-      th Nome
-      th Turno
-      th Equipe
-      th
-  tbody
-    - @employees.each do |f|
-      = render "employees", employee: f
 
-
-= link_to "Novo atendente", new_employee_path(), class: "btn btn-success"
-= link_to "Voltar", root_path(), class: "btn btn-default"
+  = link_to "Novo atendente", new_employee_path(), class: "btn btn-success"
+  = link_to "Voltar", root_path(), class: "btn btn-default"

@@ -8,7 +8,13 @@ class Occurrence < ApplicationRecord
 
   enum status: [:pending, :finished]
 
+  # before_create :occurrences_quantity
+
   def date_formatted
     created_at.strftime('%d/%m %H:%M')
   end
+
+  # def occurrences_quantity
+  #   
+  # end
 end
