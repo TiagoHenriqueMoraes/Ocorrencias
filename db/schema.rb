@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_191155) do
     t.bigint "guideline_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity",  default: 0
+    t.integer "quantity", default: 0
     t.bigint "group_id"
     t.index ["employee_id"], name: "index_occurrences_on_employee_id"
     t.index ["group_id"], name: "index_occurrences_on_group_id"

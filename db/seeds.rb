@@ -29,7 +29,7 @@ end
   turn: Turn.all.sample
 )
 
-["Grave", "Medio", "Leve"].each do |weigth|
+["Grave", "Medio", "Leve"].each do |weight|
   Group.create(
     description: weight,
     weight: ["30", "15", "5"].sample
