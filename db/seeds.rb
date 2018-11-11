@@ -10,9 +10,9 @@
 end
 
 @admin = User.create(
-  name: "JennyCordenadora",
+  name: "Chris",
   kind: 0,
-  email: "cordenador@desktop",
+  email: "coordenador@desktop",
   password: "123456",
   password_confirmation: "123456",
   team: @charlie,
@@ -20,7 +20,7 @@ end
 )
 
 @naoadmin = User.create(
-  name: "Jenny",
+  name: "Jadir",
   kind: 1,
   email: "supervisor@desktop",
   password: "123456",
