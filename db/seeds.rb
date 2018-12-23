@@ -2,7 +2,7 @@
   name: "Charlie"
 )
 
-["First", "Second", "Third", "Fourth"].each do |turn|
+["Primeiro", "Segundo", "Terceiro", "Quarto"].each do |turn|
   Turn.create(
     name: turn,
     description: "Turno mto legal"
